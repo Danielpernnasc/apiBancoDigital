@@ -22,7 +22,7 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    public Optional<Client> buscarForEmail(String email) {
+    public Optional<Client> getByEmail(String email) {
         return clientRepository.findByEmail(email);
     }
 

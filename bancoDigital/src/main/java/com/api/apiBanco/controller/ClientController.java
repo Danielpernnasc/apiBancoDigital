@@ -47,7 +47,7 @@ public class ClientController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         try {
-            Optional<Client> clientOpt = clientService.buscarForEmail(request.getEmail());
+            Optional<Client> clientOpt = clientService.getByEmail(request.getEmail());
 
             if (clientOpt.isPresent()) {
                 Client client = clientOpt.get();
@@ -87,8 +87,8 @@ public class ClientController {
     }
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<Client> buscarForEmail(@PathVariable("email") String email) {
-        return clientService.buscarForEmail(email)
+    public ResponseEntity<Client> getByEmail(@PathVariable("email") String email) {
+        return clientService.getByEmail(email)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

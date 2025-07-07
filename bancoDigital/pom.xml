@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.api</groupId>
@@ -23,6 +22,7 @@
       <version>${spring.boot.version}</version>
     </dependency>
 
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -37,11 +37,18 @@
     </dependency>
 
     <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.33</version>
-      </dependency>
-      
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+      <version>${spring.boot.version}</version>
+    </dependency>
+
 
     <dependency>
       <groupId>org.springdoc</groupId>
@@ -50,47 +57,47 @@
     </dependency>
 
 
-<!-- Add your dependencies here -->
+    <!-- Add your dependencies here -->
 
-<dependency>
+    <dependency>
 
-  <groupId>io.jsonwebtoken</groupId>
+      <groupId>io.jsonwebtoken</groupId>
 
-  <artifactId>jjwt-api</artifactId>
+      <artifactId>jjwt-api</artifactId>
 
-  <version>0.11.5</version>
+      <version>0.11.5</version>
 
-</dependency>
+    </dependency>
 
-<dependency>
+    <dependency>
 
-  <groupId>io.jsonwebtoken</groupId>
+      <groupId>io.jsonwebtoken</groupId>
 
-  <artifactId>jjwt-impl</artifactId>
+      <artifactId>jjwt-impl</artifactId>
 
-  <version>0.11.5</version>
+      <version>0.11.5</version>
 
-  <scope>runtime</scope>
+      <scope>runtime</scope>
 
-</dependency>
+    </dependency>
 
-<dependency>
+    <dependency>
 
-  <groupId>io.jsonwebtoken</groupId>
+      <groupId>io.jsonwebtoken</groupId>
 
-  <artifactId>jjwt-jackson</artifactId>
+      <artifactId>jjwt-jackson</artifactId>
 
-  <version>0.11.5</version>
+      <version>0.11.5</version>
 
-  <scope>runtime</scope>
+      <scope>runtime</scope>
 
-</dependency>
+    </dependency>
 
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.15.4</version>
-</dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.15.4</version>
+    </dependency>
 
   </dependencies>
 
@@ -109,8 +116,9 @@
           </execution>
         </executions>
       </plugin>
-  
-      <!-- Plugin para definir a Main Class no manifest (opcional, pois o spring-boot-maven-plugin já faz isso) -->
+
+      <!-- Plugin para definir a Main Class no manifest (opcional, pois o spring-boot-maven-plugin
+      já faz isso) -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -125,6 +133,6 @@
       </plugin>
     </plugins>
   </build>
-  
+
 
 </project>

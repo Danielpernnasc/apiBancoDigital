@@ -18,6 +18,9 @@ import io.jsonwebtoken.security.SignatureException;
 public class JwtService {
     private final Key SECRET_KEY = Keys.hmacShaKeyFor("d4n13lP3r1cl3s@2024!bancoDigital#jwtSecret".getBytes());
 
+    public Key getSecretKey() {
+        return SECRET_KEY;
+    }
     public String generateToken(String email) {
         return Jwts.builder()
                 .setSubject(email)
