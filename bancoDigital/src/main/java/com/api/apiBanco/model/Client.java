@@ -26,6 +26,9 @@ public class Client {
     @Transient
     private ContaExterna contaExterna = new ContaExterna();
 
+    public Client() {
+    }
+
     public Long getId() {
         return id;
     }
