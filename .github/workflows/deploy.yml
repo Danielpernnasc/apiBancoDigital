@@ -34,7 +34,6 @@ jobs:
 
       - name: Push Docker image
         run: docker push dpericles/apiclient:latest
-        
       - name: List target folder
         run: ls -lh target
 
@@ -45,5 +44,5 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           source: target/apiclient-1.0.1.jar
-          target: /home/ec2-user/
+          target: /home/ec2-user/apiclient-1.0.1.jar
           
