@@ -34,6 +34,9 @@ jobs:
 
       - name: Push Docker image
         run: docker push dpericles/apiclient:latest
+        
+      - name: List target folder
+        run: ls -lh target
 
       - name: Copy JAR to EC2
         uses: appleboy/scp-action@v0.1.4
@@ -43,3 +46,4 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           source: target/apiclient-1.0.1.jar
           target: /home/ec2-user/
+          
