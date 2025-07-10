@@ -40,8 +40,4 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
-          script: |
-            docker pull dpericles/apiclient:latest
-            docker stop apiclient || true
-            docker rm apiclient || true
-            docker run -d --name apiclient -p 8080:8080 dpericles/apiclient:latest
+
