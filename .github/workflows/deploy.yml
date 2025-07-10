@@ -46,4 +46,3 @@ jobs:
             docker rm apiclient || true
             docker run -d --name apiclient -p 8080:8080 dpericles/apiclient:latest
             docker system prune -f
-
