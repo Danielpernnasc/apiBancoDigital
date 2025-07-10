@@ -20,11 +20,11 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package
-        working-directory: bancoDigital
+        working-directory: apibancoDigital
 
       - name: Build Docker image
         run: docker build -t dpericles/apiclient:latest .
-        working-directory: bancoDigital
+        working-directory: apibancoDigital
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
@@ -41,5 +41,5 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
-          source: bancoDigital/target/*.jar
+          source: apibancoDigital/target/*.jar
           target: /home/ec2-user/
