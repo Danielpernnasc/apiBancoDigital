@@ -1,6 +1,4 @@
-FROM openjdk:17
-WORKDIR /app
-COPY target/apiclient-1.0.1.jar apiclient.jar
+FROM openjdk:17-jdk-slim
+COPY target/apiclient-1.0.1.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
 EXPOSE 8080
-CMD ["java", "-jar", "apiclient.jar"]
-

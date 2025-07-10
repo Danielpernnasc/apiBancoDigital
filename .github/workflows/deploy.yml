@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -20,11 +21,9 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package
-    
 
       - name: Build Docker image
         run: docker build -t dpericles/apiclient:latest .
-
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
@@ -34,15 +33,11 @@ jobs:
 
       - name: Push Docker image
         run: docker push dpericles/apiclient:latest
-      - name: List target folder
-        run: ls -lh target
 
-      - name: Copy JAR to EC2
-        uses: appleboy/scp-action@v0.1.4
+      - name: Deploy container via SSH
+        uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
-          source: target/apiclient-1.0.1.jar
-          target: /home/ec2-user/apiclient-1.0.1.jar
 
